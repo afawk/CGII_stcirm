@@ -58,7 +58,7 @@ class Image {
                 $color = 0;
 
                 if (isset($content[$_x]) and $y >= $content[$_x]) {
-                    $color = 255;
+                    $color = 230;
                 }
 
                 if (in_array($_x, $marks)) {
@@ -79,7 +79,7 @@ class Image {
         imagepng($img);
     }
 
-    public function show_colorized(array $content)
+    public function show_colorized(array $content, $callback)
     {
         $lines = count($content);
         $cache_allocate = [];
@@ -99,11 +99,7 @@ class Image {
                 $colors['red'] ? 0 : $colors['intensity']
             );*/
 
-            $color = imagecolorallocate($img,
-                $colors['red'],
-                $colors['green'],
-                $colors['blue']
-            );
+            $color = $callback($img, $colors);
 
             imagesetpixel($img, $x, $y, $color);
         }
