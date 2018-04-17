@@ -1,0 +1,19 @@
+{
+    "name": "anderson/1801_cg_imagem",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Anderson Fraga",
+            "email": "anderson.jean@acad.pucrs.br"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "ext-gd": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "ImageSegmentation\\": "src/ImageSegmentation/"
+        }
+    }
+}
